@@ -26,8 +26,8 @@ int	main(void)
 	v2 = v3 + v3;
 	std::cout << "v2 = v3 + v3-> " << v2 << std::endl;// 3, 6
 
-	// v2 = 3 * v2;
-	// std::cout << "v2 = 3 * v2-> " << v2 << std::endl;// 9, 18
+	v2 = 3 * v2;
+	std::cout << "v2 = 3 * v2-> " << v2 << std::endl;// 9, 18
 
 	// v2 += v2 += v3;
 	// std::cout << "v2 += v2 += v3> " << v2 << std::endl;// 20, 40

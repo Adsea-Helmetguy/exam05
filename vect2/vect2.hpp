@@ -20,36 +20,36 @@ class vect2
 	//handle operators for '+', '-' and '*';
 	//	addition ASSIGNMENT operators
 		// +
-		vect2	operator+(int add);
-		vect2	operator+(const vect2 addon);
+		vect2	operator+(int add) const;
+		vect2	operator+(const vect2 addon) const;
 		vect2&	operator++(void);// ++(pre)Increment
 		vect2	operator++(int);// ++(post)Increment
 
 	//	substraction ASSIGNMENT operators
 		// -
-		vect2	operator-(int add);
-		vect2	operator-(const vect2 addon);
+		vect2	operator-(int add) const;
+		vect2	operator-(const vect2 addon) const;
 		vect2&	operator--(void);// --(pre)decrement operators
 		vect2	operator--(int);// --(post)decrement operators
 
 	//	multiplication ASSIGNMENT operators
 		// *
-		vect2	operator*(int multi);
-		vect2	operator*(const vect2 &addon);
+		vect2	operator*(int multi) const;
+		vect2	operator*(const vect2 &addon) const;
 
 	//	equal(==) ASSIGNMENT operators
 		vect2&	operator=(const vect2& other);//	Copy Assignment Operator
 		bool	operator==(const vect2& other) const;// ==
 		bool	operator!=(const vect2& other) const;// !=
 		// +=
-		vect2   operator+=(int add);
-		vect2   operator+=(const vect2 &addon);
+		vect2   operator+=(int add) const;
+		vect2   operator+=(const vect2 &addon) const;
 		// -=
-		vect2   operator-=(int add);
-		vect2   operator-=(const vect2 &addon);
+		vect2   operator-=(int add) const;
+		vect2   operator-=(const vect2 &addon) const;
 		// *=
-		vect2   operator*=(int multi);
-		vect2   operator*=(const vect2 &multion);
+		vect2   operator*=(int multi) const;
+		vect2   operator*=(const vect2 &multion) const;
 	
 	// <<
 };

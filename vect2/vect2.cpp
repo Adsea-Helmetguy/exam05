@@ -27,7 +27,7 @@ int vect2::getContainer_elements(int array) const
 
 
 // Addition OPERATORS
-    vect2	vect2::operator+(int add)
+    vect2	vect2::operator+(int add) const
     {
         vect2 copy(*this);
     
@@ -36,7 +36,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2	vect2::operator+(const vect2 addon)
+    vect2	vect2::operator+(const vect2 addon) const
     {
         vect2 copy(*this);
 
@@ -63,7 +63,7 @@ int vect2::getContainer_elements(int array) const
     }
 
 // substraction OPERATORS
-    vect2	vect2::operator-(int minus)
+    vect2	vect2::operator-(int minus) const
     {
         vect2 copy(*this);
     
@@ -72,7 +72,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2	vect2::operator-(const vect2 minuson)
+    vect2	vect2::operator-(const vect2 minuson) const
     {
         vect2 copy(*this);
 
@@ -100,7 +100,7 @@ int vect2::getContainer_elements(int array) const
 
 
 // multiplication OPERATORS
-    vect2	vect2::operator*(int multi)
+    vect2	vect2::operator*(int multi) const
     {
         vect2 copy(*this);
     
@@ -109,7 +109,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2	vect2::operator*(const vect2 &addon)
+    vect2	vect2::operator*(const vect2 &addon) const
     {
         vect2 copy(*this);
 
@@ -154,7 +154,7 @@ int vect2::getContainer_elements(int array) const
 
 
 //  all three plus equal (+/-/*)=
-    vect2   vect2::operator+=(int add)
+    vect2   vect2::operator+=(int add) const
     {
         vect2 copy(*this);
     
@@ -164,7 +164,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2   vect2::operator+=(const vect2 &addon)
+    vect2   vect2::operator+=(const vect2 &addon) const
     {
         vect2 copy(*this);
 
@@ -174,7 +174,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2   vect2::operator-=(int minus)
+    vect2   vect2::operator-=(int minus) const
     {
         vect2 copy(*this);
     
@@ -184,7 +184,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2   vect2::operator-=(const vect2 &minuson)
+    vect2   vect2::operator-=(const vect2 &minuson) const
     {
         vect2 copy(*this);
 
@@ -194,7 +194,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2   vect2::operator*=(int multi)
+    vect2   vect2::operator*=(int multi) const
     {
         vect2 copy(*this);
     
@@ -204,7 +204,7 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2   vect2::operator*=(const vect2 &multion)
+    vect2   vect2::operator*=(const vect2 &multion) const
     {
         vect2 copy(*this);
 
