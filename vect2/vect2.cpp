@@ -109,21 +109,30 @@ int vect2::getContainer_elements(int array) const
         return (copy);
     }
 
-    vect2	vect2::operator*(const vect2 &addon) const
+    vect2	vect2::operator*(const vect2 &multion) const
     {
         vect2 copy(*this);
 
-        copy._container[0] -= addon._container[0];
-        copy._container[1] -= addon._container[1];
+        copy._container[0] *= multion._container[0];
+        copy._container[1] *= multion._container[1];
         return (copy);
+    }
+
+    vect2	operator*(int number, const vect2& vector)
+    {
+        return (vector * number);
+        //you dont need to create a second one because:
+        // 1) it will infinte loop
+        // 2) the "v2 * 3" thing is covered by the:
+        //      vect2	vect2::operator*(int multi) const
     }
 
 
 //Equal (==) OPERATORS
     vect2& vect2::operator=(const vect2& original)
     {
-        if (this == &original)//need to add & because 'this' is a pointer
-            return (*this); // handle self-assignment
+        if (this == &original)//need to add '&' because 'this' is a pointer
+            return (*this);// handle self-assignment
 
         // add in the container value
         this->_container = original._container;

@@ -35,7 +35,7 @@ class vect2
 	//	multiplication ASSIGNMENT operators
 		// *
 		vect2	operator*(int multi) const;
-		vect2	operator*(const vect2 &addon) const;
+		vect2	operator*(const vect2 &multion) const;
 
 	//	equal(==) ASSIGNMENT operators
 		vect2&	operator=(const vect2& other);//	Copy Assignment Operator
@@ -54,4 +54,5 @@ class vect2
 	// <<
 };
 
+vect2	operator*(int number, const vect2& vector);
 std::ostream& operator<<(std::ostream& out, const vect2& v);
