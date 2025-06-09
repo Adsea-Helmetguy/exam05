@@ -7,7 +7,6 @@ class	bigint
 {
 	private:
 		std::string _string;
-		//store as an array of string not number
 
 	public:
 		// Constructors
@@ -21,6 +20,9 @@ class	bigint
 		std::string	getArbiter_value() const;
 		//addtion
 			// +
+			bigint	operator+(const bigint& other) const;
+			// bigint	operator+(unsigned int value);
+			// bigint	operator+(std::string str) const;
 			// +=
 			// ++
 		//comparison
@@ -31,6 +33,7 @@ class	bigint
 			// <<= -digitshift-
 			// >>= -digitshift-
 			// operator=()// Copy Assignment Operator
+			bigint&	operator=(const bigint& other);
 			// ==
 			// !=
 			// <=

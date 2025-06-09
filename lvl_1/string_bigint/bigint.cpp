@@ -8,9 +8,15 @@ bigint::bigint()
 
 bigint::bigint(unsigned int value)
 {
-	std::stringstream ss;
+	std::ostringstream oss;
+	oss << value;
 
-	this->_string = value;
+	this->_string = oss.str();
+}
+
+bigint::bigint(const std::string& str)
+{
+    this->_string = str;
 }
 
 bigint::bigint(const bigint& original)
@@ -23,9 +29,9 @@ bigint::~bigint() {}
 
 
 //getter
-unsigned int	bigint::getArbiter_value() const
+std::string	bigint::getArbiter_value() const
 {
-	return (this->_arbiter);
+	return (this->_string);
 }
 
 
@@ -37,6 +43,29 @@ unsigned int	bigint::getArbiter_value() const
 //----------------------------------------
 //               Additions               |
 //----------------------------------------
+bigint	bigint::operator+(const bigint& other) const
+{
+	std::stringstream ss1(other.getArbiter_value());
+	std::stringstream ss2(this->getArbiter_value());
+	unsigned int val1, val2;
+	bigint	copy(*this);
+
+	ss1 >> val1;
+	ss2 >> val2;
+
+	unsigned int result = val1 + val2;
+	std::ostringstream oss;
+	oss << result;
+
+	return bigint(oss.str());
+}
+
+// bigint	operator+(unsigned int value)
+// {
+
+// }
+
+// bigint	operator+(std::string str) const;
 
 //----------------------------------------
 //               Comparsion              |
@@ -45,7 +74,14 @@ unsigned int	bigint::getArbiter_value() const
 //----------------------------------------
 //            Operators(=/==)()          |
 //----------------------------------------
+bigint&	bigint::operator=(const bigint& other)
+{
+	if (this == &other)
+		return (*this);
 
+	this->_string = other._string;
+	return (*this);
+}
 
 
 
