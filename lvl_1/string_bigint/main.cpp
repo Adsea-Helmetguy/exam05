@@ -50,8 +50,9 @@ int	main(void)
 		std::cout << "d += e: " << (d += e) << std::endl;
 		std::cout << "d += 5: " << (d += 5) << std::endl;
 		bigint f("0");
-		std::cout << "++f: " << ++f << std::endl;// 0
-		std::cout << "f++: " << f++ << std::endl;// 2
+		std::cout << "f: " << f << std::endl;// 0
+		std::cout << "f++: " << f++ << std::endl;// 0
+		std::cout << "++f: " << ++f << std::endl;// 2
 
 		// comparison
 		std::cout << std::endl;

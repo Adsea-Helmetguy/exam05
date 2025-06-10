@@ -54,10 +54,10 @@ bigint	bigint::operator+(const bigint& other) const
 	if (ss2.length() > ss1.length())
 		std::swap(ss1, ss2);
 
-	std::string result = "";
-	int carry = 0;
-	int i = ss1.length() - 1;
-	int j = ss2.length() - 1;
+	std::string	result = "";
+	int	carry = 0;
+	int	i = ss1.length() - 1;
+	int	j = ss2.length() - 1;
 
 	while (i >= 0 || j >= 0 || carry)
 	{
@@ -111,38 +111,18 @@ bigint	bigint::operator+=(unsigned int value)
 	return (*this);
 }
 
-bigint	bigint::operator++(int)
+bigint	bigint::operator++(void)
 {
-	//this->_string += 1;
-	std::stringstream	ss1(this->getArbiter_value());
-	unsigned int	final_result, this_result;
-
-	ss1 >> this_result;
-	final_result = this_result + 1;
-
-	std::ostringstream	oss;
-	oss << final_result;
-
-	this->_string = oss.str();
+	*this += 1;
 	return (*this);
 }
 
-bigint	bigint::operator++(void)
+bigint bigint::operator++(int)
 {
-	bigint	copy(*this);
-	std::stringstream	ss1(this->getArbiter_value());
-	unsigned int	final_result, this_result;
-
-	ss1 >> this_result;
-	final_result = this_result + 1;
-
-	std::ostringstream	oss;
-	oss << final_result;
-
-	this->_string = oss.str();
-	return (copy);
+	bigint copy(*this);  // Store current state
+	*this += 1;          // Reuse your +=
+	return (copy);         // Return original
 }
-
 
 
 //----------------------------------------
