@@ -42,16 +42,14 @@ class vect2
 		bool	operator==(const vect2& other) const;// ==
 		bool	operator!=(const vect2& other) const;// !=
 		// +=
-		vect2   operator+=(int add) const;
-		vect2   operator+=(const vect2 &addon) const;
+		vect2   operator+=(int add);
+		vect2   operator+=(const vect2 &addon);
 		// -=
-		vect2   operator-=(int add) const;
-		vect2   operator-=(const vect2 &addon) const;
+		vect2   operator-=(int add);
+		vect2   operator-=(const vect2 &addon);
 		// *=
-		vect2   operator*=(int multi) const;
-		vect2   operator*=(const vect2 &multion) const;
-	
-	// <<
+		vect2   operator*=(int multi);
+		vect2   operator*=(const vect2 &multion);
 };
 
 vect2	operator*(int number, const vect2& vector);

@@ -21,15 +21,24 @@ class	bigint
 		//addtion
 			// +
 			bigint	operator+(const bigint& other) const;
-			// bigint	operator+(unsigned int value);
-			// bigint	operator+(std::string str) const;
+			bigint	operator+(unsigned int value) const;
 			// +=
+			bigint	operator+=(const bigint& other);
+			bigint	operator+=(unsigned int value);
 			// ++
+			bigint	operator++(int);
+			bigint	operator++(void);
 		//comparison
 			// >
+			bool	operator>(const bigint& other);
+			bool	operator>(unsigned int value);
 			// <
+			bool	operator<(const bigint& other);
+			bool	operator<(unsigned int value);
 			// << -digitshift-
+			bigint	operator<<(unsigned int shift) const;
 			// >> -digitshift-
+			bigint	operator>>(unsigned int shift) const;
 			// <<= -digitshift-
 			// >>= -digitshift-
 			// operator=()// Copy Assignment Operator

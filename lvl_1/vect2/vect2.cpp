@@ -163,66 +163,52 @@ int vect2::getContainer_elements(int array) const
 
 
 //  all three plus equal (+/-/*)=
-    vect2   vect2::operator+=(int add) const
+    vect2   vect2::operator+=(int add)
     {
-        vect2 copy(*this);
-    
-        copy._container[0] += add;
-        copy._container[1] += add;
-
-        return (copy);
+        this->_container[0] += add;
+        this->_container[1] += add;
+        return (*this);
     }
 
-    vect2   vect2::operator+=(const vect2 &addon) const
+    vect2   vect2::operator+=(const vect2 &addon)
     {
-        vect2 copy(*this);
-
-        copy._container[0] += addon.getContainer_elements(0);
-        copy._container[1] += addon.getContainer_elements(1);
-
-        return (copy);
+        this->_container[0] += addon.getContainer_elements(0);
+        this->_container[1] += addon.getContainer_elements(1);
+        return (*this);
     }
 
-    vect2   vect2::operator-=(int minus) const
+    vect2   vect2::operator-=(int minus)
     {
-        vect2 copy(*this);
-    
-        copy._container[0] -= minus;
-        copy._container[1] -= minus;
+        this->_container[0] -= minus;
+        this->_container[1] -= minus;
 
-        return (copy);
+        return (*this);
     }
 
-    vect2   vect2::operator-=(const vect2 &minuson) const
+    vect2   vect2::operator-=(const vect2 &minuson)
     {
-        vect2 copy(*this);
-
-        copy._container[0] -= minuson.getContainer_elements(0);
-        copy._container[1] -= minuson.getContainer_elements(1);
-
-        return (copy);
+        this->_container[0] -= minuson.getContainer_elements(0);
+        this->_container[1] -= minuson.getContainer_elements(1);
+        return (*this);
     }
 
-    vect2   vect2::operator*=(int multi) const
+    vect2   vect2::operator*=(int multi)
     {
-        vect2 copy(*this);
-    
-        copy._container[0] *= multi;
-        copy._container[1] *= multi;
+        this->_container[0] *= multi;
+        this->_container[1] *= multi;
 
-        return (copy);
+        return (*this);
     }
 
-    vect2   vect2::operator*=(const vect2 &multion) const
+    vect2   vect2::operator*=(const vect2 &multion)
     {
-        vect2 copy(*this);
-
-        copy._container[0] *= multion.getContainer_elements(0);
-        copy._container[1] *= multion.getContainer_elements(1);
-
-        return (copy);
+        this->_container[0] *= multion.getContainer_elements(0);
+        this->_container[1] *= multion.getContainer_elements(1);
+        return (*this);
     }
 
+
+//outside of class
 std::ostream& operator<<(std::ostream& out, const vect2& v)
 {
 	out << "{" << v.getContainer_elements(0) << ", " << v.getContainer_elements(1) << "}" << std::endl;
