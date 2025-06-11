@@ -40,13 +40,24 @@ class	bigint
 			// >> -digitshift-
 			bigint	operator>>(unsigned int shift) const;
 			// <<= -digitshift-
+			bigint operator<<=(unsigned int shift);
 			// >>= -digitshift-
+			bigint operator>>=(unsigned int shift);
+			// <=
+			bool	operator<=(const bigint& other);
+			bool	operator<=(unsigned int shift);
+			// >=
+			bool	operator>=(const bigint& other);
+			bool	operator>=(unsigned int shift);
+
 			// operator=()// Copy Assignment Operator
 			bigint&	operator=(const bigint& other);
 			// ==
+			bool	operator==(const bigint& other);
+			bool	operator==(unsigned int shift);
 			// !=
-			// <=
-			// >=
+			bool	operator!=(const bigint& other);
+			bool	operator!=(unsigned int shift);
 };
 
 std::ostream& operator<<(std::ostream& out, const bigint& value);
