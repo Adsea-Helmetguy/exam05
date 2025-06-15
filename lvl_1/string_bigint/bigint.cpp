@@ -90,10 +90,10 @@ bigint	bigint::operator+(const bigint& other) const
 bigint	bigint::operator+(unsigned int value) const
 {
 	// Convert the unsigned int to a bigint
-	bigint other_bigint(value); // This uses the new constructor: bigint(unsigned int val)
+	bigint copy(value); // This uses the new constructor: bigint(unsigned int val)
 
 	// Now, simply reuse the existing bigint::operator+(const bigint& other)
-	return (*this + other_bigint);
+	return (*this + copy);
 }
 
 bigint	bigint::operator+=(const bigint& other)

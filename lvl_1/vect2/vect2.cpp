@@ -211,6 +211,6 @@ int vect2::getContainer_elements(int array) const
 //outside of class
 std::ostream& operator<<(std::ostream& out, const vect2& v)
 {
-	out << "{" << v.getContainer_elements(0) << ", " << v.getContainer_elements(1) << "}" << std::endl;
+	out << "{" << v.getContainer_elements(0) << ", " << v.getContainer_elements(1) << "}";
 	return (out);
 }

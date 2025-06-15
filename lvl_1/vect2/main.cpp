@@ -1,5 +1,6 @@
 #include "vect2.hpp"
 
+//clear && c++ main.cpp vect2.cpp vect2.hpp && valgrind --leak-check=full --show-leak-kinds=all ./a.out
 int	main(void)
 {
 	vect2		v1;
