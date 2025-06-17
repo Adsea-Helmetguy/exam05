@@ -16,7 +16,7 @@ bigint::bigint(unsigned int value)
 
 bigint::bigint(const std::string& str)
 {
-    this->_string = str;
+	this->_string = str;
 	int i = 0;
 
 	while (str[i] != std::string::npos && str[i] == '0')
@@ -34,7 +34,7 @@ bigint::bigint(const std::string& str)
 		}
 	}
 	else if (str[0] == std::string::npos)
-    	this->_string = "0"; //if all are zeros
+		this->_string = "0"; //if all are zeros
 }
 
 bigint::bigint(const bigint& original)
@@ -49,9 +49,6 @@ std::string	bigint::getArbiter_value() const
 {
 	return (this->_string);
 }
-
-
-
 
 
 
