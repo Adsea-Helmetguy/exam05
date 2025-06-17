@@ -1,56 +1,56 @@
 #include <string>
+#include <vector>
 #include <iostream>
 #include <ostream>
-#include <vector>
 
 class vect2
 {
 	private:
-		std::vector<int>	_container;
+		std::vector<int>		_container;
 
 	public:
-		vect2();//default constructor, add ": _container()"
-		vect2(int v1, int v2);//initalise constructor
-		vect2(const vect2& original);//copy constructor
-		~vect2();//	Destructor
-
-	int	getContainer_elements(int array) const;
-
+		vect2();
+		vect2(int v1, int v2);
+		vect2(const vect2& original);
+		~vect2();
 	
-	//handle operators for '+', '-' and '*';
-	//	addition ASSIGNMENT operators
-		// +
-		vect2	operator+(int add) const;
-		vect2	operator+(const vect2 addon) const;
-		vect2&	operator++(void);// ++(pre)Increment
-		vect2	operator++(int);// ++(post)Increment
+	//getter and setter
+	int		getcontainer_element(int array) const;
+	void	setcontainer_element(int array, int value);
 
-	//	substraction ASSIGNMENT operators
-		// -
-		vect2	operator-(int add) const;
-		vect2	operator-(const vect2 addon) const;
-		vect2&	operator--(void);// --(pre)decrement operators
-		vect2	operator--(int);// --(post)decrement operators
+	//operators()
+	// +
+	vect2	operator+(int value) const;
+	vect2	operator+(const vect2& other)const;
+	// ++
+	vect2	operator++(int);
+	vect2	operator++(void);
+	// +=
+	vect2&	operator+=(int value);
+	vect2&	operator+=(const vect2& other);
+	// -
+	vect2	operator-(int value) const;
+	vect2	operator-(const vect2& other) const;
+	// --
+	vect2	operator--(int);
+	vect2	operator--(void);
+	// -=
+	vect2&	operator-=(int value);
+	vect2&	operator-=(const vect2& other);
+	// *
+	vect2	operator*(int value) const;
+	vect2	operator*(const vect2& other) const;
 
-	//	multiplication ASSIGNMENT operators
-		// *
-		vect2	operator*(int multi) const;
-		vect2	operator*(const vect2 &multion) const;
+	// []
+	int		operator[](int array) const;
+	int&	operator[](int array);
 
-	//	equal(==) ASSIGNMENT operators
-		vect2&	operator=(const vect2& other);//	Copy Assignment Operator
-		bool	operator==(const vect2& other) const;// ==
-		bool	operator!=(const vect2& other) const;// !=
-		// +=
-		vect2   operator+=(int add);
-		vect2   operator+=(const vect2 &addon);
-		// -=
-		vect2   operator-=(int add);
-		vect2   operator-=(const vect2 &addon);
-		// *=
-		vect2   operator*=(int multi);
-		vect2   operator*=(const vect2 &multion);
+	// =
+	vect2&	operator=(const vect2& other);
+	// ==
+	bool	operator==(const vect2& other) const;
+	bool	operator!=(const vect2& other) const;
 };
 
-vect2	operator*(int number, const vect2& vector);
-std::ostream& operator<<(std::ostream& out, const vect2& v);
+vect2	operator*(int value, const vect2& other);
+std::ostream&	operator<<(std::ostream& out, const vect2& other);
