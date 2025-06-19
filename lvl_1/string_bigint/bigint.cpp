@@ -16,19 +16,26 @@ bigint::bigint(unsigned int value)
 
 bigint::bigint(const std::string& str)
 {
-	if (str.empty())
+    this->_string = str;
+	int i = 0;
+
+	while (str[i] != std::string::npos && str[i] == '0')
+		i++;
+	if (i > 0)
 	{
-		this->_string = "0";
-		return ;
+		if (str[i] != std::string::npos)
+		{
+			std::string str2;
+			if (str.size() != 0 && str.size() != 1)
+			{
+				str2 = str.substr (i, (str.size() - i)); // 0000506 -> 506
+				this->_string = str2;
+			}
+		}
 	}
-
-	size_t	first_non_zero = str.find_first_not_of('0');
-	if (first_non_zero == std::string::npos)
-		this->_string = "0"; // all zeros or empty
-	else
-		this->_string = str.substr(first_non_zero);
+	else if (str[0] == std::string::npos)
+    	this->_string = "0"; //if all are zeros
 }
-
 
 bigint::bigint(const bigint& original)
 {
@@ -46,34 +53,35 @@ std::string	bigint::getArbiter_value() const
 
 
 
+
+
+
 //----------------------------------------
 //               Additions               |
 //----------------------------------------
 bigint	bigint::operator+(const bigint& other) const
 {
 	bigint	copy(*this);
-
-	std::string	ss1 = this->_string;
+	std::string ss1 = this->_string;
 	std::string ss2 = other._string;
 
+	// Make sure ss1 is longer for the while loop working
 	if (ss2.length() > ss1.length())
 		std::swap(ss1, ss2);
-	
-	std::string		result = "";
-	int		i = ss1.length() - 1;
-	int		j = ss2.length() - 1;
-	int		carry = 0;
+
+	std::string	result = "";
+	int	i = ss1.length() - 1;// to prevent hitting the .end() part
+	int	j = ss2.length() - 1;// to prevent hitting the .end() part
+	int	carry = 0;
 
 	while (i >= 0 || j >= 0 || carry)
 	{
-		int	digit1 = i >= 0 ? ss1[i] - '0' : 0;
-		int	digit2 = j >= 0 ? ss2[j] - '0' : 0;
-		int	sum = digit1 + digit2 + carry;
+		int digit1 = i >= 0 ? ss1[i--] - '0' : 0;
+		int digit2 = j >= 0 ? ss2[j--] - '0' : 0;
+		int sum = digit1 + digit2 + carry;
 
-		i--;
-		j--;
-		result.insert(result.begin(), (sum % 10) + '0');
-		carry = sum / 10;
+		result.insert(result.begin(), (sum % 10) + '0');// if sum == 4, "+ '0'" will make it a string
+		carry = sum / 10;// leftovers will be transferred over like primary school maths
 	}
 	copy._string = result;
 	return (copy);
