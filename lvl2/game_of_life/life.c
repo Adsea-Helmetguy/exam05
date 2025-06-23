@@ -79,7 +79,7 @@ char**	living_cells_start(char **new_board, int width, int height)
 		if (start_drawing == true)
 			new_board[array][index] = '0';
 	}
-	print_board(new_board, height);
+	//print_board(new_board, height);
 	return (new_board);
 }
 
@@ -128,7 +128,6 @@ char**	next_gen(char** new_board, int width, int height)
 	int		right = 0;
 	char	**empty_board = board_creation(width, height);
 
-	printf("\n\n\n");
 	while (row < height)
 	{
 		col = 0;
@@ -168,14 +167,16 @@ char**	next_gen(char** new_board, int width, int height)
 				if (right != col && new_board[row][right] == '0')
 					cell_counter++;
 			}
-			printf("[CELL COUNTER]--> %i\n", cell_counter);
 			if (cell_counter == 3)
+			{
+				//printf("[CELL COUNTER]--> %i\n", cell_counter);
 				empty_board[row][col] = 'n';
+			}
 			col++;
 		}
 		row++;
 	}
-	print_board(empty_board, height);
+	//print_board(empty_board, height);
 	return (empty_board);
 }
 
@@ -188,7 +189,6 @@ char**	liveboard(char** new_board, int width, int height)
 	int		right = 0;
 	char	**empty_board = board_creation(width, height);
 
-	printf("\n\n\n");
 	while (row < height)
 	{
 		col = 0;
@@ -228,14 +228,16 @@ char**	liveboard(char** new_board, int width, int height)
 				if (right != col && new_board[row][right] == '0')
 					cell_counter++;
 			}
-			printf("[CELL COUNTER]--> %i\n", cell_counter);
 			if (cell_counter == 2 || cell_counter == 3)
+			{
+				//printf("[CELL COUNTER]--> %i\n", cell_counter);
 				empty_board[row][col] = 'c';
+			}
 			col++;
 		}
 		row++;
 	}
-	print_board(empty_board, height);
+	//print_board(empty_board, height);
 	return (empty_board);
 }
 
@@ -256,8 +258,6 @@ char**	combineboard(char **nextgen_board, char **livecell_board, int width, int 
 		}
 		array++;
 	}
-	printf("\n\n\n");
-	print_board(updated_board, height);
 	return (updated_board);
 }
 
@@ -305,9 +305,13 @@ void	game_of_life_start(char	**argv)
 	if (!board)
 		return ;
 
+	printf("\n\n-----Board %i-----\n", 0);
+	print_board(board, height);
 	while (iteration <= max_iterations)
 	{
 		board = living_cells_continue(board, width, height);
+		printf("\n-----Board %i-----\n", iteration);
+		print_board(board, height);
 		iteration++;
 	}
 	// at the end of game
