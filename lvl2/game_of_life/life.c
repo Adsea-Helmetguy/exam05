@@ -89,14 +89,15 @@ char**	board_creation(int width, int height)
 	int		index;
 	int		array;
 
-	new_board = (char **)calloc(height, sizeof(char *));
+	new_board = (char **)calloc(height, sizeof(char *));//allocate size for each array
     if (!new_board)
         return NULL;
 
 	array = 0;
 	while (array < height)
 	{
-		new_board[array] = (char *)calloc(width + 1, sizeof(char)); // +1 for '\0' if needed
+		//allocate size for each index inside array
+		new_board[array] = (char *)calloc(width + 1, sizeof(char));// +1 for '\0' if needed
 		if (!new_board[array])
 		{
 			// Cleanup if allocation fails
@@ -111,6 +112,7 @@ char**	board_creation(int width, int height)
 			new_board[array][index] = ' ';
 			index++;
 		}
+		new_board[array][index] = '\0';
 		array++;
     }
 	return (new_board);
