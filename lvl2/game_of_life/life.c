@@ -24,15 +24,15 @@ void	print_board(char **new_board, int height)
 	int		array = 0;
 	while (array < height)
 	{
-		printf("[Board] %s$\n", new_board[array]);
+		printf("%s\n", new_board[array]);
 		array++;
 	}
 }
 
 void free_board(char **board, int height)
 {
-    for (int i = 0; i < height; i++)
-        free(board[i]);
+    for (int a = 0; a < height; a++)
+        free(board[a]);
     free(board);
 }
 
@@ -52,34 +52,18 @@ char**	living_cells_start(char **new_board, int width, int height)
 			break;
 
 		if (c == 'x')
-		{
 			start_drawing = !start_drawing;
-			printf("\t[Value of \"new\" boolean] : %i\n", start_drawing);
-		}
-		else if (c == 'w')
-		{
-			if (array > 0)
+		else if (c == 'w' && array > 0)
 				array--;
-		}
-		else if (c == 'a')
-		{
-			if (index > 0)
+		else if (c == 'a' && index > 0)
 				index--;
-		}
-		else if (c == 's')
-		{
-			if (array < height)
+		else if (c == 's' && (array + 1 < height))
 				array++;
-		}
-		else if (c == 'd')
-		{
-			if (index < width)
+		else if (c == 'd' && (index + 1 < width))
 				index++;
-		}
-		if (start_drawing == true)
+		if (start_drawing == true && new_board[array] && index < width)
 			new_board[array][index] = '0';
 	}
-	//print_board(new_board, height);
 	return (new_board);
 }
 
@@ -89,23 +73,13 @@ char**	board_creation(int width, int height)
 	int		index;
 	int		array;
 
-	new_board = (char **)calloc(height, sizeof(char *));//allocate size for each array
-    if (!new_board)
-        return NULL;
-
+	new_board = (char **)calloc(height + 1, sizeof(char *));//allocate size for each array
 	array = 0;
+
 	while (array < height)
 	{
 		//allocate size for each index inside array
 		new_board[array] = (char *)calloc(width + 1, sizeof(char));// +1 for '\0' if needed
-		if (!new_board[array])
-		{
-			// Cleanup if allocation fails
-			while (--array >= 0)
-				free(new_board[array]);
-			free(new_board);
-			return (NULL);
-		}
 		index = 0;
 		while (index < width)
 		{
@@ -292,7 +266,6 @@ void	game_of_life_start(char	**argv)
 	int		width = 0;
 	int		height = 0;
 	int		max_iterations = 0;
-	int		iteration = 1;
 	char	**empty_board;
 	char	**board;
 
@@ -305,15 +278,9 @@ void	game_of_life_start(char	**argv)
 	if (!board)
 		return ;
 
-	printf("\n\n-----Board %i-----\n", 0);
-	print_board(board, height);
-	while (iteration <= max_iterations)
-	{
+	while (max_iterations--)
 		board = living_cells_continue(board, width, height);
-		printf("\n-----Board %i-----\n", iteration);
-		print_board(board, height);
-		iteration++;
-	}
-	// at the end of game
+
+	print_board(board, height);
 	free_board(board, height);
 }
