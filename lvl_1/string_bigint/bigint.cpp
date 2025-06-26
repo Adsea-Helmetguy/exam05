@@ -76,12 +76,14 @@ bigint	bigint::operator+(const bigint& other) const
 
 	while (i >= 0 || j >= 0 || carry)
 	{
-		int digit1 = i >= 0 ? ss1[i--] - '0' : 0;
-		int digit2 = j >= 0 ? ss2[j--] - '0' : 0;
+		int digit1 = i >= 0 ? ss1[i] - '0' : 0;
+		int digit2 = j >= 0 ? ss2[j] - '0' : 0;
 		int sum = digit1 + digit2 + carry;
 
+		i--;
+		j--;
 		result.insert(result.begin(), (sum % 10) + '0');// if sum == 4, "+ '0'" will make it a string
-		carry = sum / 10;// leftovers will be transferred over like primary school maths
+		carry = (sum / 10);// leftovers will be transferred over like primary school maths
 	}
 	copy._string = result;
 	return (copy);
