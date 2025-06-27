@@ -10,4 +10,3 @@
 
 //create functions
 // bool	arguement_are_num_checker(char **argv);
-void	game_of_life_start(int width, int height, int iteration);
