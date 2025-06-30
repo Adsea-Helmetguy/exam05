@@ -9,6 +9,9 @@ void	ft_bsq_from_stdin(FILE *stream)
 //fopen(const char *pathname, const char *mode);
 void	ft_bsq(char **argv)
 {
+	// FILE *file = fopen(stdin, "r");
+		// if (!file)
+		// 	return (1);
 	//	check file that all lines are same length
 
 	//	at least one line present with at least one box

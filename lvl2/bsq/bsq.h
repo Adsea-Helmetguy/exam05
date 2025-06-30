@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>// free
 
 //focus functions->
 // calloc, free, fopen, fclose, getline, fprintf
