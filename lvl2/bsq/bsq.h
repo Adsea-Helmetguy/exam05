@@ -2,6 +2,13 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>// free
+#include <stdbool.h>// for bool
+
+	extern ssize_t		map_array;
+	extern char		    empty;
+	extern char		    obstacle;
+	extern char	    	full;
+
 
 //focus functions->
 // calloc, free, fopen, fclose, getline, fprintf

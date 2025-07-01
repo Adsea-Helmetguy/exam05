@@ -17,6 +17,8 @@ In the case that more than one solution exists, we'll choose to represent the sq
 When your program receives more than one map in argument, each solution or "map error" must be followed by a line break.
 Should there be no passed arguments, your program must be able to read on the standard input.
 
+cat example.txt | ./a.out
+
 Definition of a valid map :
  - All lines must have the same length.
  - There's at least one line of at least one box.

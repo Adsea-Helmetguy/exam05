@@ -280,6 +280,15 @@ bigint	bigint::operator>>(unsigned int shift) const
 	return (copy);
 }
 
+bigint bigint::operator<<=(const bigint& other)
+{
+	if (this->_string == "0")
+		return (*this);
+
+	this->_string.append(shift, '0');// append n zeros at the end
+	return (*this);
+}
+
 bigint bigint::operator<<=(unsigned int shift)
 {
 	if (this->_string == "0")

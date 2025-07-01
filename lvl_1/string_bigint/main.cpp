@@ -13,19 +13,24 @@ int	main(void)
 		std::cout << c << std::endl;
 		std::cout << d << std::endl;
 		std::cout << e << std::endl;
-		std::cout << "\"(a + b)\"--> " << (a + b) << std::endl;
+		std::cout << "\"(a + b)\"--> " << a + b << std::endl;
 		std::cout << "\"(c += a)\"--> " << (c += a) << std::endl;
-		// std::cout << "\"(d <<= 2)\"--> " << (d <<= 2) << std::endl;
-		std::cout << "\"((b << 10) + 42)\"--> " << ((b << 10) + 42) << std::endl;
-
-
-		bigint	test;
-		std::cout << std::endl;
-		std::cout << "Value of TEST-> " << test << std::endl;
-		std::cout << "Value of ++TEST-> " << ++test << std::endl;
-		std::cout << "Value of TEST++-> " << test++ << std::endl;
-		std::cout << "Value of final *TEST-> " << test << std::endl;
-
+		std::cout << "b = " << b << std::endl;
+		std::cout << "++b = " << b << std::endl;
+		std::cout << "b++ = " << b << std::endl;
+		std::cout << "b = " << b << std::endl;
+		std::cout << "\"((b << 10) + 42)\" = " << ((b << 10) + 42) << std::endl;
+		std::cout << "\"((d <<= 4) + 42)\" = " << ((b << 10) + 42) << std::endl;
+		std::cout << "\"((d >>= (const bigint)2)\" = " << (d >>= (const bigint)2) << std::endl;
+		std::cout << "a = " << a << std::endl;
+		std::cout << "d = " << d << std::endl;
+		std::cout << "(d < a) = " << (d < a) << std::endl;
+		std::cout << "(d > a) = " << (d > a) << std::endl;
+		std::cout << "(d == a) = " << (d == a) << std::endl;
+		std::cout << "(d != a) = " << (d != a) << std::endl;
+		std::cout << "(d == a) = " << (d == a) << std::endl;
+		std::cout << "(d <= a) = " << (d <= a) << std::endl;
+		std::cout << "(d >= a) = " << (d >= a) << std::endl;
 
 		bigint x(1234);
 		std::cout << std::endl;
