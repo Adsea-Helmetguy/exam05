@@ -6,7 +6,7 @@
 class	bigint
 {
 	private:
-		std::string	_string;;
+		std::string	_string;
 
 	public:
 		bigint();
@@ -19,6 +19,18 @@ class	bigint
 
 	//operators
 		bigint	operator+(const bigint& other) const;
+		bigint	operator+=(const bigint& other);
+		bigint	operator++(int);
+		bigint	operator++(void);
+		bigint	operator<<(unsigned int value) const;
+		bigint	operator<<=(unsigned int value);
+		bigint	operator>>=(const bigint& other);
+		bool	operator>(const bigint& other);
+		bool	operator<(const bigint& other);
+		bool	operator==(const bigint& other);
+		bool	operator!=(const bigint& other);
+		bool	operator<=(const bigint& other);
+		bool	operator>=(const bigint& other);
 };
 
 std::ostream&	operator<<(std::ostream& out, const bigint& other);
