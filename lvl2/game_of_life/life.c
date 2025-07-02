@@ -133,7 +133,6 @@ char	**update_board(char **new_board, int width, int height)
 
 void	game_of_life(int width, int height, int iteration)
 {
-	char	**empty_board;
 	char	**new_board;
 
 	new_board = add_livingcells(width, height);

@@ -21,6 +21,10 @@ int     main(int argc, char **argv)
     int height = atoi(argv[2]);
     int iteration = atoi(argv[3]);
 
+	//width and height cannot be less or equal to 0, and iteration cannot be lesser than 0
+	if (width <= 0 || height <= 0 || iteration < 0)
+		return (1);
+
     game_of_life(width, height, iteration);
     return (0);
 }
